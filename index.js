@@ -8,23 +8,9 @@ const path = require("path");
 const cors = require("cors");
 const { type } = require("os");
 require('dotenv').config()
-const allowedOrigins = [
-  ''
-]
-const corsOptions = {
-  origin: (origin, callback)=>{
-    if(allowedOrigins.indexOf(origin)!==-1||!origin){
-      callback(null, true)
-    } else{
-      callback(new Error("Not allowed by CORS"))
-    }
-  },
-  credentials: true,
-  optionsSuccessStatus: 200
-}
 
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Database Connection MongoDB
 
